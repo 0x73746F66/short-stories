@@ -31,7 +31,7 @@ This fan site celebrates the rich and wondrous tapestry of J.K. Rowling's wizard
 
 > *"Words are, in my not-so-humble opinion, our most inexhaustible source of magic, capable of both inflicting injury and remedying it."*
 > 
-> — Albus Percival Wulfric Brian Dumbledore
+> — Albus Dumbledore
 
 These archives stand as a testament to the enduring power of stories — how they inspire, transform, and unite us across generations and continents. Whether you're a Gryffindor at heart, possess the ambition of Slytherin, value Ravenclaw's wisdom, or embody Hufflepuff's loyalty, you'll find tales here that speak to the magic within us all.
 

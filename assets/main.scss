@@ -36,6 +36,14 @@
   --candlelight: #ffb74d;
   --potion-green: #2e7d32;
   --wand-wood: #6d4c41;
+  
+  /* Shadow Effects */
+  --shadow-magical: 0 0 50px rgba(0, 0, 0, 0.8), 
+                    inset 0 0 100px rgba(101, 67, 33, 0.1), 
+                    0 20px 80px rgba(139, 69, 19, 0.4);
+  --shadow-magical-glow: 0 0 60px rgba(212, 175, 55, 0.3), 
+                         inset 0 0 100px rgba(101, 67, 33, 0.1), 
+                         0 20px 90px rgba(212, 175, 55, 0.3);
 }
 
 /* ━━━ Body & Background - The Great Hall at Night ━━━ */
@@ -111,10 +119,7 @@ body::after {
     rgba(238, 223, 188, 0.98) 50%, 
     rgba(232, 215, 180, 0.98) 100%);
   border-radius: 8px;
-  box-shadow: 
-    0 0 50px rgba(0, 0, 0, 0.8),
-    inset 0 0 100px rgba(101, 67, 33, 0.1),
-    0 20px 80px rgba(139, 69, 19, 0.4);
+  box-shadow: var(--shadow-magical);
   border: 12px solid;
   border-image: linear-gradient(
     135deg,
@@ -131,8 +136,8 @@ body::after {
 }
 
 @keyframes gentle-glow {
-  0%, 100% { box-shadow: 0 0 50px rgba(0, 0, 0, 0.8), inset 0 0 100px rgba(101, 67, 33, 0.1), 0 20px 80px rgba(139, 69, 19, 0.4); }
-  50% { box-shadow: 0 0 60px rgba(212, 175, 55, 0.3), inset 0 0 100px rgba(101, 67, 33, 0.1), 0 20px 90px rgba(212, 175, 55, 0.3); }
+  0%, 100% { box-shadow: var(--shadow-magical); }
+  50% { box-shadow: var(--shadow-magical-glow); }
 }
 
 /* Parchment texture overlay */
@@ -735,16 +740,6 @@ em {
     inset 0 1px 0 rgba(255, 255, 255, 0.5),
     0 0 30px rgba(212, 175, 55, 0.3);
   border-color: var(--golden-glow);
-}
-
-/* ━━━ Magical Scroll Shadows ━━━ */
-.wrapper {
-  box-shadow: 
-    0 0 0 1px var(--ancient-gold),
-    0 0 5px 2px rgba(0, 0, 0, 0.3),
-    0 10px 30px rgba(0, 0, 0, 0.5),
-    0 20px 60px rgba(0, 0, 0, 0.4),
-    inset 0 0 100px rgba(139, 69, 19, 0.05);
 }
 
 /* ━━━ Accessibility - Ensuring Readability ━━━ */
