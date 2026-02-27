@@ -29,7 +29,7 @@ Before he became the enigmatic Potions Master, before his fateful friendship wit
 
 This fan site celebrates the rich tapestry of J.K. Rowling's wizarding world through creative storytelling. All stories are works of fan fiction, created with love and respect for the original Harry Potter series.
 
-*"Words are, in my not-so-humble opinion, our most inexhaustible source of magic."* — Albus Dumbledore
+*"Words are, in my not-so-humble opinion, our most inexhaustible source of magic, capable of both inflicting injury and remedying it."* — Albus Dumbledore
 
 ---
 
