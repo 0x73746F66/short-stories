@@ -1,0 +1,905 @@
+---
+---
+
+@import "{{ site.theme }}";
+
+/* ═══════════════════════════════════════════════════════════════
+   The Marauder's Archives - Harry Potter Themed Fan Site
+   A magical journey through parchment and starlight
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ━━━ Color Palette - Hogwarts Houses & Magical Elements ━━━ */
+:root {
+  /* House Colors */
+  --gryffindor-red: #740001;
+  --gryffindor-gold: #d3a625;
+  --slytherin-green: #1a472a;
+  --slytherin-silver: #aaaaaa;
+  --ravenclaw-blue: #0e1a40;
+  --ravenclaw-bronze: #946b2d;
+  --hufflepuff-yellow: #ecb939;
+  --hufflepuff-black: #372e29;
+  
+  /* Primary Palette */
+  --parchment-light: #f8f4e6;
+  --parchment-dark: #e8dcc0;
+  --ink-black: #2c2416;
+  --ink-brown: #4a3728;
+  --golden-snitch: #d4af37;
+  --golden-glow: #ffd700;
+  --ancient-gold: #b8860b;
+  
+  /* Magical Accents */
+  --magic-purple: #5b2c6f;
+  --night-blue: #0a0e27;
+  --starlight: #ffffff;
+  --candlelight: #ffb74d;
+  --potion-green: #2e7d32;
+  --wand-wood: #6d4c41;
+  
+  /* Shadow Effects */
+  --shadow-magical: 0 0 50px rgba(0, 0, 0, 0.8), 
+                    inset 0 0 100px rgba(101, 67, 33, 0.1), 
+                    0 20px 80px rgba(139, 69, 19, 0.4);
+  --shadow-magical-glow: 0 0 60px rgba(212, 175, 55, 0.3), 
+                         inset 0 0 100px rgba(101, 67, 33, 0.1), 
+                         0 20px 90px rgba(212, 175, 55, 0.3);
+}
+
+/* ━━━ Body & Background - The Great Hall at Night ━━━ */
+body {
+  background: linear-gradient(180deg, #0a0e27 0%, #1a1a3e 30%, #2d1b4e 60%, #1a1a3e 100%);
+  background-attachment: fixed;
+  color: var(--parchment-light);
+  font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, Georgia, serif;
+  line-height: 1.8;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Animated twinkling stars background */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(circle, rgba(255, 255, 255, 0.8) 1px, transparent 1px),
+    radial-gradient(circle, rgba(255, 255, 255, 0.6) 1px, transparent 1px),
+    radial-gradient(circle, rgba(255, 255, 255, 0.4) 1px, transparent 1px),
+    radial-gradient(circle, rgba(255, 215, 0, 0.5) 2px, transparent 2px);
+  background-size: 250px 250px, 300px 300px, 200px 200px, 350px 350px;
+  background-position: 0 0, 40px 60px, 130px 270px, 70px 100px;
+  animation: twinkle 8s ease-in-out infinite;
+  z-index: 0;
+  pointer-events: none;
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.6; }
+}
+
+/* Floating candles effect (using pseudo-elements) */
+body::after {
+  content: "";
+  position: fixed;
+  top: -50%;
+  left: 0;
+  width: 100%;
+  height: 150%;
+  background-image: 
+    radial-gradient(ellipse 2px 8px at 10% 20%, rgba(255, 183, 77, 0.4), transparent),
+    radial-gradient(ellipse 2px 8px at 30% 40%, rgba(255, 193, 7, 0.3), transparent),
+    radial-gradient(ellipse 2px 8px at 60% 10%, rgba(255, 183, 77, 0.4), transparent),
+    radial-gradient(ellipse 2px 8px at 80% 30%, rgba(255, 193, 7, 0.3), transparent);
+  background-size: 100% 100%;
+  animation: float-candles 20s ease-in-out infinite;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+@keyframes float-candles {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+/* ━━━ Main Container - Ancient Parchment Scroll ━━━ */
+.wrapper {
+  max-width: 960px;
+  margin: 40px auto;
+  padding: 0;
+  background: linear-gradient(to bottom, 
+    rgba(244, 235, 208, 0.98) 0%, 
+    rgba(238, 223, 188, 0.98) 50%, 
+    rgba(232, 215, 180, 0.98) 100%);
+  border-radius: 8px;
+  box-shadow: var(--shadow-magical);
+  border: 12px solid;
+  border-image: linear-gradient(
+    135deg,
+    var(--ancient-gold) 0%,
+    var(--golden-snitch) 25%,
+    var(--wand-wood) 50%,
+    var(--golden-snitch) 75%,
+    var(--ancient-gold) 100%
+  ) 1;
+  border-image-slice: 1;
+  position: relative;
+  z-index: 1;
+  animation: gentle-glow 4s ease-in-out infinite;
+}
+
+@keyframes gentle-glow {
+  0%, 100% { box-shadow: var(--shadow-magical); }
+  50% { box-shadow: var(--shadow-magical-glow); }
+}
+
+/* Parchment texture overlay */
+.wrapper::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(101, 67, 33, 0.03) 2px, rgba(101, 67, 33, 0.03) 4px),
+    repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(101, 67, 33, 0.03) 2px, rgba(101, 67, 33, 0.03) 4px);
+  pointer-events: none;
+  z-index: 1;
+  border-radius: inherit;
+}
+
+/* Aged paper stains */
+.wrapper::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 80% 10%, rgba(139, 69, 19, 0.15) 0%, transparent 20%),
+    radial-gradient(circle at 20% 90%, rgba(101, 67, 33, 0.12) 0%, transparent 25%),
+    radial-gradient(circle at 50% 50%, rgba(160, 82, 45, 0.08) 0%, transparent 30%);
+  pointer-events: none;
+  z-index: 1;
+  border-radius: inherit;
+}
+
+/* ━━━ Header - Platform 9¾ Inspired ━━━ */
+.site-header {
+  position: relative;
+  background: linear-gradient(135deg, 
+    var(--gryffindor-red) 0%, 
+    var(--magic-purple) 50%, 
+    var(--ravenclaw-blue) 100%);
+  border: none;
+  border-bottom: 5px solid var(--golden-snitch);
+  padding: 30px 20px;
+  margin: 0;
+  border-radius: 0;
+  box-shadow: 
+    0 5px 20px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  z-index: 2;
+}
+
+.site-header::before {
+  content: "⚯͛";
+  position: absolute;
+  top: 50%;
+  left: 20px;
+  transform: translateY(-50%);
+  font-size: 3em;
+  color: var(--golden-snitch);
+  opacity: 0.6;
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+  animation: pulse-magic 3s ease-in-out infinite;
+}
+
+.site-header::after {
+  content: "✨";
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+  font-size: 2.5em;
+  color: var(--golden-glow);
+  opacity: 0.6;
+  animation: sparkle 2s ease-in-out infinite;
+}
+
+@keyframes pulse-magic {
+  0%, 100% { opacity: 0.6; transform: translateY(-50%) scale(1); }
+  50% { opacity: 1; transform: translateY(-50%) scale(1.1); }
+}
+
+@keyframes sparkle {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 1; }
+}
+
+.site-title {
+  font-size: 2.8em;
+  font-weight: bold;
+  color: var(--golden-snitch) !important;
+  text-shadow: 
+    2px 2px 4px rgba(0, 0, 0, 0.8),
+    0 0 20px rgba(212, 175, 55, 0.5),
+    0 0 40px rgba(212, 175, 55, 0.3);
+  letter-spacing: 3px;
+  text-decoration: none !important;
+  font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+  font-variant: small-caps;
+  display: inline-block;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.site-title:hover {
+  color: var(--golden-glow) !important;
+  text-shadow: 
+    2px 2px 6px rgba(0, 0, 0, 0.9),
+    0 0 30px rgba(255, 215, 0, 0.8),
+    0 0 60px rgba(255, 215, 0, 0.4);
+  transform: scale(1.05);
+}
+
+/* ━━━ Content Area - Magical Parchment ━━━ */
+.page-content {
+  padding: 50px 60px;
+  position: relative;
+  z-index: 2;
+  background: transparent;
+}
+
+/* ━━━ Typography - Wizarding World Style ━━━ */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--ink-black);
+  font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, Georgia, serif;
+  margin-top: 1.5em;
+  margin-bottom: 0.8em;
+  text-shadow: 1px 1px 2px rgba(212, 175, 55, 0.3);
+  position: relative;
+  font-weight: 700;
+}
+
+h1 {
+  font-size: 3em;
+  color: var(--gryffindor-red);
+  border-bottom: 4px double var(--golden-snitch);
+  padding-bottom: 15px;
+  margin-bottom: 30px;
+  text-align: center;
+  font-variant: small-caps;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+h1::before {
+  content: "✦";
+  color: var(--golden-snitch);
+  margin-right: 15px;
+  font-size: 0.8em;
+}
+
+h1::after {
+  content: "✦";
+  color: var(--golden-snitch);
+  margin-left: 15px;
+  font-size: 0.8em;
+}
+
+h2 {
+  font-size: 2.2em;
+  color: var(--magic-purple);
+  border-bottom: 3px solid var(--golden-snitch);
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+  padding-left: 25px;
+  position: relative;
+}
+
+h2::before {
+  content: "🪄";
+  position: absolute;
+  left: 0;
+  font-size: 0.8em;
+  top: 5px;
+}
+
+h3 {
+  font-size: 1.8em;
+  color: var(--ravenclaw-blue);
+  border-left: 5px solid var(--golden-snitch);
+  padding-left: 20px;
+  margin-left: -25px;
+}
+
+/* ━━━ Links - Magical Portkeys ━━━ */
+a {
+  color: var(--ravenclaw-blue);
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+  transition: all 0.3s ease;
+  font-weight: 600;
+  position: relative;
+}
+
+a:hover {
+  color: var(--gryffindor-red);
+  border-bottom: 2px solid var(--golden-snitch);
+  text-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
+}
+
+a::after {
+  content: "✨";
+  opacity: 0;
+  font-size: 0.7em;
+  margin-left: 5px;
+  transition: opacity 0.3s ease;
+  display: inline-block;
+  transform: translateY(-2px);
+}
+
+a:hover::after {
+  opacity: 1;
+  animation: sparkle-link 1s ease-in-out infinite;
+}
+
+@keyframes sparkle-link {
+  0%, 100% { opacity: 1; transform: translateY(-2px) scale(1); }
+  50% { opacity: 0.5; transform: translateY(-4px) scale(1.2); }
+}
+
+/* ━━━ Paragraphs - Flowing Script ━━━ */
+p {
+  color: var(--ink-brown);
+  margin-bottom: 1.4em;
+  text-align: justify;
+  text-indent: 2em;
+  font-size: 1.05em;
+  line-height: 1.9;
+  hyphens: auto;
+}
+
+p:first-of-type {
+  text-indent: 0;
+}
+
+p:first-of-type::first-letter {
+  font-size: 4em;
+  float: left;
+  line-height: 0.8;
+  margin: 0.1em 0.1em 0 0;
+  color: var(--gryffindor-red);
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  font-family: Georgia, serif;
+}
+
+/* ━━━ Horizontal Rules - Wand Dividers ━━━ */
+hr {
+  border: none;
+  height: 20px;
+  background: none;
+  margin: 40px 0;
+  position: relative;
+  text-align: center;
+  overflow: visible;
+}
+
+hr::before {
+  content: "⚯͛ ⚯͛ ⚯͛";
+  display: inline-block;
+  font-size: 1.5em;
+  color: var(--golden-snitch);
+  background: var(--parchment-light);
+  padding: 0 20px;
+  position: relative;
+  z-index: 1;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+hr::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    var(--golden-snitch) 20%,
+    var(--golden-snitch) 80%,
+    transparent 100%);
+  z-index: 0;
+}
+
+/* ━━━ Blockquotes - Dumbledore's Wisdom ━━━ */
+blockquote {
+  border-left: 5px solid var(--gryffindor-red);
+  border-right: 5px solid var(--golden-snitch);
+  padding: 25px 30px;
+  margin: 30px 20px;
+  font-style: italic;
+  color: var(--ink-black);
+  background: linear-gradient(135deg, 
+    rgba(212, 175, 55, 0.15) 0%, 
+    rgba(116, 0, 1, 0.08) 100%);
+  border-radius: 8px;
+  box-shadow: 
+    inset 0 2px 10px rgba(0, 0, 0, 0.1),
+    0 4px 15px rgba(0, 0, 0, 0.2);
+  position: relative;
+  font-size: 1.15em;
+}
+
+blockquote::before {
+  content: "\201C";
+  font-size: 4em;
+  position: absolute;
+  left: 10px;
+  top: -10px;
+  color: var(--golden-snitch);
+  opacity: 0.4;
+  font-family: Georgia, serif;
+}
+
+blockquote::after {
+  content: "\201D";
+  font-size: 4em;
+  position: absolute;
+  right: 10px;
+  bottom: -35px;
+  color: var(--golden-snitch);
+  opacity: 0.4;
+  font-family: Georgia, serif;
+}
+
+blockquote p {
+  margin: 0;
+  text-indent: 0;
+  color: var(--ink-black);
+  font-weight: 500;
+}
+
+/* ━━━ Featured Story Card - Magical Showcase ━━━ */
+h2 + h3 {
+  background: linear-gradient(135deg, 
+    rgba(116, 0, 1, 0.1) 0%, 
+    rgba(212, 175, 55, 0.1) 100%);
+  padding: 20px 25px;
+  border-radius: 10px;
+  border: 3px solid var(--golden-snitch);
+  margin-top: 20px;
+  margin-bottom: 20px;
+  box-shadow: 
+    0 8px 25px rgba(0, 0, 0, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  transition: all 0.3s ease;
+  margin-left: 0;
+  border-left: none;
+  padding-left: 25px;
+}
+
+h2 + h3::before {
+  content: none;
+}
+
+h2 + h3:hover {
+  transform: translateY(-5px);
+  box-shadow: 
+    0 15px 35px rgba(0, 0, 0, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3),
+    0 0 30px rgba(212, 175, 55, 0.3);
+  border-color: var(--golden-glow);
+}
+
+h2 + h3 a {
+  color: var(--gryffindor-red);
+  border: none;
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
+h2 + h3 a:hover {
+  color: var(--magic-purple);
+}
+
+/* Story metadata */
+h2 + h3 + p {
+  font-style: italic;
+  color: var(--ink-brown);
+  font-size: 0.95em;
+  opacity: 0.8;
+  text-indent: 0;
+  margin-left: 25px;
+}
+
+h2 + h3 + p + p {
+  margin-top: 15px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 8px;
+  border-left: 4px solid var(--ravenclaw-bronze);
+  box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* Genre tags */
+p strong {
+  color: var(--gryffindor-red);
+  font-weight: bold;
+  font-variant: small-caps;
+  letter-spacing: 0.5px;
+}
+
+/* ━━━ Code Blocks - Spell Incantations ━━━ */
+pre, code {
+  background: rgba(42, 39, 52, 0.4);
+  border: 2px solid var(--golden-snitch);
+  border-radius: 6px;
+  font-family: 'Courier New', 'Lucida Console', monospace;
+}
+
+pre {
+  padding: 20px;
+  overflow-x: auto;
+  box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+code {
+  padding: 3px 8px;
+  color: var(--candlelight);
+  font-size: 0.9em;
+}
+
+/* ━━━ Lists - Enchanted Scrolls ━━━ */
+ul, ol {
+  color: var(--ink-brown);
+  margin-left: 40px;
+  margin-bottom: 20px;
+}
+
+li {
+  margin-bottom: 12px;
+  position: relative;
+  padding-left: 10px;
+}
+
+ul li::marker {
+  content: "⚡ ";
+  color: var(--golden-snitch);
+  font-size: 1.1em;
+}
+
+ol li::marker {
+  color: var(--gryffindor-red);
+  font-weight: bold;
+}
+
+/* ━━━ Footer - Hogwarts Legacy ━━━ */
+.site-footer {
+  border-top: 5px double var(--golden-snitch);
+  margin: 50px 0 0 0;
+  padding: 30px 40px;
+  text-align: center;
+  color: var(--ink-brown);
+  font-size: 0.9em;
+  background: linear-gradient(to bottom, 
+    transparent 0%, 
+    rgba(139, 69, 19, 0.08) 100%);
+  font-style: italic;
+  position: relative;
+  z-index: 2;
+}
+
+.site-footer::before {
+  content: "⚯͛";
+  display: block;
+  font-size: 2em;
+  color: var(--golden-snitch);
+  margin-bottom: 10px;
+  opacity: 0.6;
+}
+
+/* ━━━ Navigation - House Common Rooms ━━━ */
+.site-nav {
+  float: right;
+  line-height: 70px;
+}
+
+.site-nav .page-link {
+  color: var(--parchment-light);
+  line-height: 1.5;
+  margin-left: 25px;
+  font-weight: 600;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+  transition: all 0.3s ease;
+  border-bottom: 2px solid transparent;
+  padding-bottom: 2px;
+}
+
+.site-nav .page-link:hover {
+  color: var(--golden-glow);
+  border-bottom: 2px solid var(--golden-glow);
+  text-shadow: 0 0 15px rgba(255, 215, 0, 0.8);
+}
+
+/* ━━━ Tables - Hogwarts House Points ━━━ */
+table {
+  border-collapse: separate;
+  border-spacing: 0;
+  width: 100%;
+  margin: 30px 0;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+th, td {
+  border: 1px solid var(--ancient-gold);
+  padding: 15px 20px;
+  text-align: left;
+  color: var(--ink-black);
+}
+
+th {
+  background: linear-gradient(135deg, 
+    var(--gryffindor-gold) 0%, 
+    var(--golden-snitch) 100%);
+  color: var(--ink-black);
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.9em;
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.3);
+}
+
+td {
+  background: rgba(255, 255, 255, 0.7);
+}
+
+tr:hover td {
+  background: rgba(212, 175, 55, 0.2);
+}
+
+/* ━━━ Emphasis & Strong - Magical Text ━━━ */
+strong {
+  color: var(--gryffindor-red);
+  font-weight: bold;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+em {
+  color: var(--magic-purple);
+  font-style: italic;
+}
+
+/* ━━━ Special Decorative Elements ━━━ */
+
+/* Wand corner decorations */
+.page-content::before {
+  content: "";
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  width: 80px;
+  height: 80px;
+  background: 
+    linear-gradient(45deg, transparent 48%, var(--golden-snitch) 48%, var(--golden-snitch) 52%, transparent 52%),
+    linear-gradient(-45deg, transparent 48%, var(--golden-snitch) 48%, var(--golden-snitch) 52%, transparent 52%);
+  opacity: 0.15;
+  pointer-events: none;
+}
+
+.page-content::after {
+  content: "";
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+  width: 80px;
+  height: 80px;
+  background: 
+    linear-gradient(45deg, transparent 48%, var(--golden-snitch) 48%, var(--golden-snitch) 52%, transparent 52%),
+    linear-gradient(-45deg, transparent 48%, var(--golden-snitch) 48%, var(--golden-snitch) 52%, transparent 52%);
+  opacity: 0.15;
+  pointer-events: none;
+}
+
+/* Story card styling */
+.post-list {
+  list-style: none;
+  margin-left: 0;
+}
+
+.post-list > li {
+  background: rgba(255, 255, 255, 0.6);
+  padding: 25px;
+  margin-bottom: 25px;
+  border-radius: 10px;
+  border: 2px solid var(--golden-snitch);
+  box-shadow: 
+    0 5px 20px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  transition: all 0.3s ease;
+}
+
+.post-list > li:hover {
+  transform: translateY(-5px);
+  box-shadow: 
+    0 10px 30px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5),
+    0 0 30px rgba(212, 175, 55, 0.3);
+  border-color: var(--golden-glow);
+}
+
+/* ━━━ Accessibility - Ensuring Readability ━━━ */
+*::selection {
+  background: var(--golden-snitch);
+  color: var(--ink-black);
+}
+
+*:focus {
+  outline: 2px solid var(--golden-glow);
+  outline-offset: 3px;
+}
+
+/* ━━━ Responsive Design - Mobile Wizarding ━━━ */
+@media screen and (max-width: 800px) {
+  .wrapper {
+    margin: 0;
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
+  }
+  
+  .page-content {
+    padding: 30px 25px;
+  }
+  
+  h1 {
+    font-size: 2.2em;
+  }
+  
+  h2 {
+    font-size: 1.8em;
+  }
+  
+  h3 {
+    font-size: 1.5em;
+  }
+  
+  .site-title {
+    font-size: 1.8em;
+  }
+  
+  .site-header::before,
+  .site-header::after {
+    font-size: 2em;
+  }
+  
+  p:first-of-type::first-letter {
+    font-size: 3em;
+  }
+  
+  .page-content::before,
+  .page-content::after {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .page-content {
+    padding: 20px 15px;
+  }
+  
+  h1 {
+    font-size: 1.8em;
+  }
+  
+  .site-title {
+    font-size: 1.4em;
+    letter-spacing: 1px;
+  }
+  
+  blockquote {
+    padding: 20px 15px;
+    margin: 20px 10px;
+  }
+}
+
+/* ━━━ Print Styles - Owl Post Ready ━━━ */
+@media print {
+  body {
+    background: white;
+    color: black;
+  }
+  
+  body::before,
+  body::after {
+    display: none;
+  }
+  
+  .wrapper {
+    box-shadow: none;
+    border: 2px solid black;
+    background: white;
+  }
+  
+  .site-header {
+    background: white;
+    color: black;
+    border-bottom: 2px solid black;
+  }
+  
+  .site-title {
+    color: black !important;
+    text-shadow: none;
+  }
+  
+  h1, h2, h3 {
+    color: black;
+    text-shadow: none;
+  }
+  
+  a {
+    color: black;
+    border-bottom: 1px solid black;
+  }
+  
+  p {
+    color: black;
+  }
+}
+
+/* ━━━ Custom Animations - Lumos! ━━━ */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.page-content > * {
+  animation: fadeInUp 0.6s ease-out backwards;
+}
+
+.page-content > *:nth-child(1) { animation-delay: 0.1s; }
+.page-content > *:nth-child(2) { animation-delay: 0.2s; }
+.page-content > *:nth-child(3) { animation-delay: 0.3s; }
+.page-content > *:nth-child(4) { animation-delay: 0.4s; }
+.page-content > *:nth-child(5) { animation-delay: 0.5s; }
+
+/* ━━━ Scroll Enhancement - Magical Reveal ━━━ */
+html {
+  scroll-behavior: smooth;
+}
+
+/* ━━━ Loading State - Apparition Effect ━━━ */
+.wrapper {
+  animation: apparate 0.8s ease-out;
+}
+
+@keyframes apparate {
+  0% {
+    opacity: 0;
+    transform: scale(0.95) translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
