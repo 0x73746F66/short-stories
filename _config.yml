@@ -2,3 +2,8 @@ title: The Marauder's Archives
 description: A Harry Potter Fan Site - Untold Tales from Hogwarts
 theme: minima
 markdown: kramdown
+
+# Custom settings
+show_excerpts: true
+minima:
+  skin: dark
